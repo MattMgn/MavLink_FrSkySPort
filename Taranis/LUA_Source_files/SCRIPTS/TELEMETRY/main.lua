@@ -164,15 +164,20 @@
     loadFModTab() --only reloads if apType has changed in config screen
     if shvars.apType == 0 then
 	    WavSfx = "A"
-	  else
+	  elseif shvars.apType == 1 then
 	    WavSfx = "P"
+	  else
+	    WavSfx = "R"
 	  end
+
 		FmodeNr = getValue("Fuel")+1
 		if FmodeNr<1 or FmodeNr>#flightMode then
 			if shvars.apType == 0 then
 			  FmodeNr=13 -- This is an invalid flight number for Copter when no data available
-			else
+			elseif shvars.apType == 1 then
 			  FmodeNr=10 -- This is an invalid flight number for Plane when no data available
+			else
+			  FmodeNr=7  -- This is an invalid flight number for Rover when no data available
 			end
 		end
 		if last_flight_mode~=flightMode[FmodeNr] then

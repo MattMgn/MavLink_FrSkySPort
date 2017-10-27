@@ -60,6 +60,16 @@ elseif apType == "plane" or apType == 1 then
     "Invalid Mode",
     "Guided"
   }
+elseif apType == "rover" or apType == 2 then
+  return {
+    "Manual",
+    "Learning",
+    "Auto",
+    "Steering",
+    "Hold",
+    "Guided"
+    "Invalid Mode"
+  }
 else
   return nil
 end
